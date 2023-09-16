@@ -1,25 +1,34 @@
-import logo from './logo.svg';
+import React, { useEffect, useState } from 'react';
 import './App.css';
+import Header from './components/Header';
+import Boarder from './components/Boarder';
+import TaskForm from './components/TaskForm';
+import { ColumnsContext, TasksContext } from './context';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const { Provider: ColumnsProvider } = ColumnsContext
+    const { Provider: TasksProvider } = TasksContext
+
+
+    const [columns, setColumns] = useState(null)
+    const [tasks, setTasks] = useState(null)
+
+    // useEffect(() => {
+    //     setColumns(ColumnsProvider)
+    // })
+
+    return (
+        <>
+            <Header />
+            {!columns ? <Boarder /> : null}
+            {/* <ColumnsProvider value={columns}>
+                <TasksProvider value={tasks}>
+                    <Boarder />
+                </TasksProvider>
+            </ColumnsProvider> */}
+            <TaskForm />
+        </>
+    );
 }
 
 export default App;
