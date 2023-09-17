@@ -2,13 +2,14 @@ import React, { useContext } from "react";
 import Task from "./Task";
 import { TasksContext } from "../context";
 
+
 const Column = (props) => {
     const { name, limit, id } = props.item
     const tasks = useContext(TasksContext)
     
     const renderTasks = () => {
         const currentTasks = tasks.filter(task => task.idColumn === id)
-        return currentTasks.map(item => <Task key={item.id} task={item}/>)
+        return currentTasks.map(item => <Task key={item.id} task={item} />)
     }
 
     return (
@@ -19,6 +20,7 @@ const Column = (props) => {
                 {renderTasks()}
             </ul>
         </section>
+
     )
 }
 

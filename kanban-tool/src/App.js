@@ -1,31 +1,35 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useContext } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Boarder from './components/Boarder';
 import TaskForm from './components/TaskForm';
-import { ColumnsContext, TasksContext } from './context';
+import { TasksContext } from './context';
+import { useStorage } from './hooks';
 
 function App() {
-    const { Provider: ColumnsProvider } = ColumnsContext
-    const { Provider: TasksProvider } = TasksContext
+    const { Provider } = TasksContext
+    const initTasks = useContext(TasksContext)
 
-
-    const [columns, setColumns] = useState(null)
     const [tasks, setTasks] = useState(null)
+    const [getItem, setItem] = useStorage()
 
-    // useEffect(() => {
-    //     setColumns(ColumnsProvider)
-    // })
+    useEffect(() => {
+        if (getItem('tasks') === null) {
+            setItem('tasks', initTasks)
+        } else {
+            const tasksFromStorage = getItem('tasks')
+            setTasks(tasksFromStorage)
+        }
+        console.log('useEffect')
+    }, [])
 
     return (
         <>
             <Header />
-            {!columns ? <Boarder /> : null}
-            {/* <ColumnsProvider value={columns}>
-                <TasksProvider value={tasks}>
-                    <Boarder />
-                </TasksProvider>
-            </ColumnsProvider> */}
+            {!tasks && <Boarder />}
+            {tasks && <Provider value={tasks}>
+                <Boarder />
+            </Provider>}
             <TaskForm />
         </>
     );
