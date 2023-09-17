@@ -1,4 +1,7 @@
-localStorage.setItem('myEl', 'test')
+import React from "react"
 
-const ans = localStorage.getItem('meEl')
-console.log(ans)
+
+
+const LocalStorageMethods = React.createContext()
+
+export default LocalStorageMethods

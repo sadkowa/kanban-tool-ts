@@ -17,8 +17,8 @@ body {
   gap: 20px;
   max-width: 1200px;
   width: 80%;
-  margin: 40px auto;
-  padding: 40px;
+  margin: 30px auto;
+  padding: 30px;
   background-color: #82ccdd;
   box-shadow: 5px 5px 30px 10px #031d30;
 }
@@ -52,11 +52,59 @@ body {
   justify-content: space-around;
   align-items: center;
   background-color: #dde747;
-  box-shadow: 4px 4px 3px #0a3d62;
+  box-shadow: 4px 4px 3px #1980ca;
   margin-top: 20px;
   color: black;
   width: 100%;
   height: 100px;
+}
+
+.form__box {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  margin: 40px auto;
+  width: 70%;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 18px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  width: 350px;
+  margin-top: 10px
+}
+
+.form__input {
+  width: 100%;
+  margin-top: 5px;
+  font-size: 18px;
+  padding: 3px;
+  border-radius: 5px;
+}
+
+.form__input--button {
+  text-transform: uppercase;
+  background-color: #dde747;
+  letter-spacing: 1px;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+}
+
+.form__errors {
+  align-self: center;
+  padding: 0;
+  list-style: none;
+  color: red
 }
 
 @media(max-width: 1000px) {
@@ -74,7 +122,10 @@ body {
   .task {
     font-size: 14px;
     margin-top: 10px;
+  }
 
+  .form__label {
+    width: 300px
   }
 }
 
@@ -85,5 +136,12 @@ body {
 
   .task {
     font-size: 12px;
+  }
+
+  .form__box {
+    flex-direction: column;
+    align-items: center;
+    margin: 0 auto;
+    width: 100%;
   }
 }

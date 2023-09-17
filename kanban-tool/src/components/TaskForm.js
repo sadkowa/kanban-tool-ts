@@ -1,14 +1,66 @@
-import React from "react";
+import React, { useReducer, useState } from 'react';
+import { v4 as uuid } from 'uuid';
+import { fields, initData, formValidate } from '../providers/formData'
 
 
-const TaskForm = ()=> {
+function TaskForm() {
+    const [errorsList, setErrorsList] = useState([])
+
+    const reducer = (state, action) => {
+        if (action.type === 'reset') {
+            return initData
+        }
+        console.log(state)
+        return { ...state, [action.name]: action.value }
+    }
+
+    const [state, dispatch] = useReducer(reducer, initData)
+
+    const submitHandler = (e) => {
+        e.preventDefault()
+        setErrorsList([])
+
+        const formErrors = formValidate(state)
+
+        setErrorsList(formErrors)
+
+        if (formErrors.length === 0) {
+            dispatch({ type: 'reset' })
+        }
+    }
+
+    const renderFields = () => fields.map((item) =>
+        <label
+            key={item.id}
+            className="form__label"
+            htmlFor={item.name} >{item.label}
+            <input
+                id={item.name}
+                className='form__input'
+                type={item.type}
+                name={item.name}
+                value={state[item.name]}
+                onChange={(e) => dispatch(e.target)} />
+        </label>)
+
+    const renderErrors = () => {
+        const listItems = errorsList.map(err => <li key={uuid()}>{err}</li>)
+
+        return <ul className='form__errors'>{listItems}</ul>
+    }
+
     return (
-        <form >
-            <label htmlFor="aaa">Test
-                <input type="text" />
-            </label>
-        </form>
-    )
+        <div className='form__box'>
+            <form className="form" onSubmit={submitHandler}>
+                {renderFields()}
+                <label className="form__label" htmlFor='submit'>
+                    <input className='form__input form__input--button' id='submit' type="submit" name="submit" value="Add new task" />
+                </label>
+            </form>
+            {errorsList.length !== 0 && renderErrors()}
+        </div>
+    );
+
 }
 
-export default TaskForm
+export default TaskForm;

@@ -6,6 +6,7 @@ import TaskForm from './components/TaskForm';
 import { TasksContext } from './context';
 import { useStorage } from './hooks';
 
+
 function App() {
     const { Provider } = TasksContext
     const initTasks = useContext(TasksContext)
@@ -21,6 +22,7 @@ function App() {
             setTasks(tasksFromStorage)
         }
         console.log('useEffect')
+       
     }, [])
 
     return (
