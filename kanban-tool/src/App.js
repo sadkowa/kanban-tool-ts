@@ -36,7 +36,7 @@ function App() {
                             const newIdColumn = item.idColumn - 1
                             const newTask = { ...item, idColumn: newIdColumn }
                             return newTask
-                        } else alert(`"${columns[item.idColumn - 2].name}" limit exceeded`)
+                        } else alert(`"${columns[item.idColumn - 2].name}" limit exceeded`) // nie wiem dlaczego alert wyskakuje 2 razy. muszę 2 razy nacisnąć ok
                     }
 
                     if (action === 'moveRight') {
