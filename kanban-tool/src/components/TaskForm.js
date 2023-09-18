@@ -1,16 +1,17 @@
-import React, { useReducer, useState } from 'react';
+import React, { useReducer, useState, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
 import { fields, initData, formValidate } from '../providers/formData'
-
+import { TasksContext } from '../context';
 
 function TaskForm() {
     const [errorsList, setErrorsList] = useState([])
+    const { addTask } = useContext(TasksContext)
 
     const reducer = (state, action) => {
         if (action.type === 'reset') {
+
             return initData
         }
-        console.log(state)
         return { ...state, [action.name]: action.value }
     }
 
@@ -26,6 +27,8 @@ function TaskForm() {
 
         if (formErrors.length === 0) {
             dispatch({ type: 'reset' })
+            addTask(state)
+
         }
     }
 

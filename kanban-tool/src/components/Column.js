@@ -5,7 +5,7 @@ import { TasksContext } from "../context";
 
 const Column = (props) => {
     const { name, limit, id } = props.item
-    const tasks = useContext(TasksContext)
+    const {tasks} = useContext(TasksContext)
     
     const renderTasks = () => {
         const currentTasks = tasks.filter(task => task.idColumn === id)

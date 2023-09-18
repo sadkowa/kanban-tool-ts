@@ -1,11 +1,15 @@
+import { v4 as uuid } from 'uuid';
+
+
 const fields = [
-    { name: 'task', type: 'text', label: "Task", required: true, id: '1' },
-    { name: 'workerName', type: 'text', label: "Worker name", required: true, id: '2' },
+    { name: 'name', type: 'text', label: "Task", required: true, id: '1' },
+    { name: 'user', type: 'text', label: "Worker name", required: true, id: '2' },
 ]
 const initData = {
-    task: '',
-    workerName: '',
-    idColumn: 1
+    name: '',
+    user: '',
+    idColumn: 1,
+    id: uuid()
 }
 
 const formValidate = (state) => {

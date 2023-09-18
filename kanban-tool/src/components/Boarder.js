@@ -1,10 +1,9 @@
 import React, { useContext } from "react";
 import Column from "./Column";
-import { ColumnsContext } from "../context";
+import { initColumns } from "../providers/initData";
 
 const Boarder = () => {
-    const columns = useContext(ColumnsContext)
-    // console.log(columns)
+    const columns = initColumns
 
     const renderColumns = () => {
         return columns.map(item => <Column key={item.id} item={item}/>)
