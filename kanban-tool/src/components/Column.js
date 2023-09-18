@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import Task from "./Task";
-import { TasksContext } from "../context";
+import TasksContext from "../context/TasksContext";
 
 
 const Column = (props) => {

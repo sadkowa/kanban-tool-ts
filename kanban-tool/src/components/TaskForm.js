@@ -1,7 +1,7 @@
 import React, { useReducer, useState, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
 import { fields, initData, formValidate } from '../providers/formData'
-import { TasksContext } from '../context';
+import TasksContext from '../context/TasksContext';
 
 function TaskForm() {
     const [errorsList, setErrorsList] = useState([])
@@ -9,7 +9,6 @@ function TaskForm() {
 
     const reducer = (state, action) => {
         if (action.type === 'reset') {
-
             return initData
         }
         return { ...state, [action.name]: action.value }
@@ -27,8 +26,7 @@ function TaskForm() {
 
         if (formErrors.length === 0) {
             dispatch({ type: 'reset' })
-            addTask(state)
-
+            addTask(state) //nie jestem przekonana czy na pewno w tym miesjcu aktualizować state
         }
     }
 
@@ -62,8 +60,7 @@ function TaskForm() {
             </form>
             {errorsList.length !== 0 && renderErrors()}
         </div>
-    );
-
+    )
 }
 
 export default TaskForm;

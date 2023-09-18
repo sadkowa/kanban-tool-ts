@@ -1,9 +1,9 @@
-import React, { useEffect, useState, useContext } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
 import Boarder from './components/Boarder';
 import TaskForm from './components/TaskForm';
-import { TasksContext } from './context';
+import TasksContext from './context/TasksContext';
 import { useStorage } from './hooks';
 import { initTasks } from './providers/initData';
 
@@ -11,74 +11,75 @@ import { initTasks } from './providers/initData';
 function App() {
     const { Provider } = TasksContext
 
-
     const [tasks, setTasks] = useState(initTasks)
     const [getItem, setItem] = useStorage()
 
     useEffect(() => {
-
-        const tasksFromStorage = getItem('tasks')
-        setTasks(tasksFromStorage)
-
-
+        if (getItem('tasks') === null) {
+            setItem('tasks', tasks)
+        } else {
+            const tasksFromStorage = getItem('tasks')
+            setTasks(tasksFromStorage)
+        }
     }, [])
 
-    const moveRight = (id, columns) => {
-        const changedTasks = tasks.map(item => {
-            if (item.id === id) {
-                const nextColumnTasks = tasks.filter(task => task.idColumn === item.idColumn + 1)
-                const nextColumnLimit = columns[item.idColumn].limit
+    const moveTask = (id, columns, action) => {
+        setTasks(prevTasks => {
+            const changedTasks = prevTasks.map(item => {
 
-                if (nextColumnTasks.length !== nextColumnLimit) {
-                    const newIdColumn = item.idColumn++
-                    const newTask = { ...item, newIdColumn }
-                    return newTask
-                } else alert(`"${columns[item.idColumn].name}" limit exceeded`)
-            }
+                if (item.id === id) {
+                    if (action === 'moveLeft') {
+                        const previousColumnTasks = tasks.filter(task => task.idColumn === item.idColumn - 1)
+                        const previousColumnLimit = columns[item.idColumn - 2].limit
 
-            return item
+                        if (previousColumnTasks.length !== previousColumnLimit) {
+                            const newIdColumn = item.idColumn - 1
+                            const newTask = { ...item, idColumn: newIdColumn }
+                            return newTask
+                        } else alert(`"${columns[item.idColumn - 2].name}" limit exceeded`)
+                    }
+
+                    if (action === 'moveRight') {
+                        const nextColumnTasks = tasks.filter(task => task.idColumn === item.idColumn + 1)
+                        const nextColumnLimit = columns[item.idColumn].limit
+
+                        if (nextColumnTasks.length !== nextColumnLimit) {
+                            const newIdColumn = item.idColumn + 1
+                            const newTask = { ...item, idColumn: newIdColumn }
+                            return newTask
+                        } else alert(`"${columns[item.idColumn].name}" limit exceeded`)
+                    }
+                }
+                return item
+            })
+
+            setItem('tasks', changedTasks)
+            return changedTasks
         })
-        setTasks(changedTasks)
     }
-
-    const moveLeft = (id, columns) => {
-        const changedTasks = tasks.map(item => {
-            if (item.id === id) {
-                console.log(item)
-                const previousColumnTasks = tasks.filter(task => task.idColumn === item.idColumn - 1)
-                const previousColumnLimit = columns[item.idColumn - 2].limit
-
-                if (previousColumnTasks.length !== previousColumnLimit) {
-                    const newIdColumn = item.idColumn--
-                    const newTask = { ...item, newIdColumn }
-                    return newTask
-                } else alert(`"${columns[item.idColumn].name}" limit exceeded`)
-            }
-
-            return item
-        })
-        setTasks(changedTasks)
-    }
-
-    // const deleteTask = (id) => {
-    //     const changedTasks = tasks.filter(task => task.id !== id)
-    //     setTasks(changedTasks)
-    // } Która wersja deleteTask jest bardziej poprawna? Czy muszę się odnosić do prevTasks czy mogę korzystać z tasks?
 
     const deleteTask = (id) => {
         setTasks(prevTasks => {
-            return prevTasks.filter(task => task.id !== id)
+            const changedTasks = prevTasks.filter(task => task.id !== id)
+            setItem('tasks', changedTasks)
+
+            return changedTasks
         })
     }
 
     const addTask = (task) => {
-        setTasks(prevTasks => [...prevTasks, task])
+        setTasks(prevTasks => {
+            const changedTasks = [...prevTasks, task]
+            setItem('tasks', changedTasks)
+
+            return changedTasks
+        })
     }
 
     return (
         <>
             <Header />
-            <Provider value={{ tasks, moveRight, moveLeft, deleteTask, addTask }}>
+            <Provider value={{ tasks, moveTask, deleteTask, addTask }}>
                 <Boarder />
                 <TaskForm />
             </Provider>

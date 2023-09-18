@@ -1,24 +1,24 @@
 import React, { useContext } from "react";
-import { TasksContext } from "../context";
+import TasksContext from "../context/TasksContext";
 import { initColumns } from "../providers/initData";
 
 const Task = (props)=> {
     const { user, name, idColumn, id } = props.task
 
-    const { moveRight, moveLeft, deleteTask } = useContext(TasksContext)
-    // console.log(tasks)
+    const { moveTask, deleteTask } = useContext(TasksContext)
 
     const handleMoveRightClick = () => {
-        moveRight(id, initColumns)
+        moveTask(id, initColumns, 'moveRight')
     }
 
     const handleMoveLeftClick = () => {
-        moveLeft(id, initColumns)
+        moveTask(id, initColumns, 'moveLeft')
     }
 
     const handleDeleteClick = () => {
         deleteTask(id)
     }
+
     return(
         <div className="task" >
             <h4 className="task__name">{name}</h4>
@@ -28,7 +28,6 @@ const Task = (props)=> {
                 <button onClick={handleDeleteClick} className="task__delete task--button ">x</button>
                 <button onClick={handleMoveRightClick} className={`task__next task--button ${idColumn === 7 ? "task__next--none" : null}`}>{'>'}</button>
             </div>
-
         </div>
     )
 }

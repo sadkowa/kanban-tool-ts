@@ -1,6 +1,5 @@
 import { v4 as uuid } from 'uuid';
 
-
 const fields = [
     { name: 'name', type: 'text', label: "Task", required: true, id: '1' },
     { name: 'user', type: 'text', label: "Worker name", required: true, id: '2' },
@@ -19,13 +18,13 @@ const formValidate = (state) => {
 
         if (field.required) {
             if (value.length === 0) {
-                const newError = `Pole ${field.label} jest wymagane.`
+                const newError = `"${field.label}" field is required.`
                 errors.push(newError)
             }
         }
     })
+
     return errors
 }
-
 
 export { fields, initData, formValidate } 
