@@ -3,6 +3,7 @@ import './App.css';
 import Header from './components/Header';
 import Boarder from './components/Boarder';
 import TaskForm from './components/TaskForm';
+import PopUp from './components/Popup';
 import TasksContext from './context/TasksContext';
 import { useStorage } from './hooks';
 import { initTasks } from './providers/initData';
@@ -12,14 +13,15 @@ function App() {
     const { Provider } = TasksContext
 
     const [tasks, setTasks] = useState(initTasks)
+    const [limitMessage, setLimitMessage] = useState('')
+
     const [getItem, setItem] = useStorage()
 
     useEffect(() => {
-        if (getItem('tasks') === null) {
-            setItem('tasks', tasks)
-        } else {
-            const tasksFromStorage = getItem('tasks')
-            setTasks(tasksFromStorage)
+        const item = getItem('tasks')
+
+        if (item) {
+            setTasks(item)
         }
     }, [])
 
@@ -36,10 +38,12 @@ function App() {
                             const newIdColumn = item.idColumn - 1
                             const newTask = { ...item, idColumn: newIdColumn }
                             return newTask
-                        } else alert(`"${columns[item.idColumn - 2].name}" limit exceeded`) // nie wiem dlaczego alert wyskakuje 2 razy. muszę 2 razy nacisnąć ok
+                        } else {
+                            setLimitMessage(`"${columns[item.idColumn - 2].name}" limit exceeded!`)
+                        }
                     }
 
-                    if (action === 'moveRight') {
+                    else if (action === 'moveRight') {
                         const nextColumnTasks = tasks.filter(task => task.idColumn === item.idColumn + 1)
                         const nextColumnLimit = columns[item.idColumn].limit
 
@@ -47,7 +51,7 @@ function App() {
                             const newIdColumn = item.idColumn + 1
                             const newTask = { ...item, idColumn: newIdColumn }
                             return newTask
-                        } else alert(`"${columns[item.idColumn].name}" limit exceeded`)
+                        } else setLimitMessage(`"${columns[item.idColumn].name}" limit exceeded!`)
                     }
                 }
                 return item
@@ -76,9 +80,14 @@ function App() {
         })
     }
 
+    const exitPopUp = () => {
+        setLimitMessage('')
+    }
+
     return (
         <>
             <Header />
+            {limitMessage && <PopUp exitPopUp={exitPopUp}>{limitMessage}</PopUp>}
             <Provider value={{ tasks, moveTask, deleteTask, addTask }}>
                 <Boarder />
                 <TaskForm />

@@ -26,7 +26,7 @@ function TaskForm() {
 
         if (formErrors.length === 0) {
             dispatch({ type: 'reset' })
-            addTask(state) //nie jestem przekonana czy na pewno w tym miesjcu aktualizować state
+            addTask(state) 
         }
     }
 
