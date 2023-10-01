@@ -15,7 +15,7 @@ body {
   display: flex;
   gap: 20px;
   max-width: 1200px;
-  width: 80%;
+  width: 90%;
   margin: 30px auto;
   padding: 30px;
   background-color: #82ccdd;
@@ -38,6 +38,8 @@ body {
   margin: 0 auto;
   height: 50px;
   color: #0a3d62;
+  word-break: break-word;
+  font-size: 12px
 }
 
 .column__class-list {
@@ -53,10 +55,11 @@ body {
   background-color: #dde747;
   box-shadow: 4px 4px 3px #1980ca;
   margin-top: 20px;
-  padding: 8px;
   color: black;
   width: 100%;
   height: 110px;
+  padding: 0px;
+  font-size: 12px;
 }
 
 .task__buttons {
@@ -71,11 +74,12 @@ body {
   color: white;
   border: none;
   border-radius: 2px;
-  padding: 2px 0;
-  width: 25px;
   font-size: 15px;
   font-weight: bold;
   cursor: pointer;
+  padding: 2px;
+  width: 15px;
+  font-size: 10px;
 }
 
 .task__next--none, .task__previous--none {
@@ -84,10 +88,10 @@ body {
 
 .form__box {
   display: flex;
-  justify-content: center;
-  gap: 50px;
-  margin: 30px auto;
-  width: 70%;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-bottom: 30px
 }
 
 .form {
@@ -99,17 +103,17 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  font-size: 18px;
+  font-size: 12px;
   text-transform: uppercase;
   letter-spacing: 1px;
-  width: 350px;
+  width: 300px;
   margin-top: 10px
 }
 
 .form__input {
   width: 100%;
   margin-top: 5px;
-  font-size: 18px;
+  font-size: 12px;
   padding: 3px;
   border-radius: 5px;
 }
@@ -119,59 +123,110 @@ body {
   background-color: #dde747;
   letter-spacing: 1px;
   font-weight: bold;
+  font-size: 14px;
   border: none;
   cursor: pointer;
 }
 
 .form__errors {
-  align-self: center;
+  margin-bottom: 40px;
   padding: 0;
   list-style: none;
   color: red
 }
 
-@media(max-width: 1100px) {
-  .boarder {
-    max-width: 95%;
-    padding: 20px;
-    gap: 10px
-  }
-
+@media(min-width: 900px) {
   .column__header {
-    font-size: 15px;
-    word-break: break-word;
+    font-size: 14px
   }
 
   .task {
+    padding: 8px;
     font-size: 14px;
-    margin-top: 10px;
-  }
-
-  .form__label {
-    width: 300px
-  }
-}
-
-@media(max-width: 900px) {
-  .column__header {
-    font-size: 12px
-  }
-
-  .task {
-    padding: 0px;
-    font-size: 12px;
-  }
-
-  .form__box {
-    flex-direction: column;
-    align-items: center;
-    margin: 0 auto;
-    width: 100%;
   }
 
   .task--button {
     padding: 2px;
-    width: 15px;
-    font-size: 10px;
+    width: 20px;
+    font-size: 12px;
+  }
+
+  .form__box {
+    width: 100%;
+    flex-direction: row;
+    justify-content: center;
+    margin-bottom: 60px;
+  }
+
+  .form__label {
+    font-size: 16px;
+    width: 400px;
+  }
+
+  .form__input {
+    font-size: 14px;
+    padding: 4px;
+  }
+
+  .form__input--button {
+    margin-top: 20px;
+    font-size: 16px;
+  }
+
+  .form__errors {
+    margin-bottom: 0;
+    font-size: 16px;
+  }
+}
+
+@media(min-width: 1100px) {
+  .boarder {
+    max-width: 1200px;
+    padding: 20px;
+  }
+
+  .column__header {
+    margin: 20px auto;
+    font-size: 18px;
+  }
+
+  .column__limit {
+    font-size: 26px;
+  }
+
+  .task {
+    font-size: 18px;
+    margin-top: 20px;
+    height: 140px;
+  }
+
+  .task--button {
+    padding: 4px;
+    width: 25px;
+    font-size: 14px;
+  }
+
+  .form__box {
+    gap: 50px
+  }
+
+  .form__label {
+    margin-top: 15px;
+    font-size: 20px;
+  }
+
+  .form__input {
+    padding: 6px;
+  }
+
+  .form__input--button {
+    margin-top: 20px;
+    padding: 6px;
+    font-size: 20px;
+  }
+
+  .form__errors {
+    margin-bottom: 0;
+    font-size: 18px;
   }
 }
