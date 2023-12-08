@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/sadkowa/KanbanTool/static/css/main.967a3a5e.css",
+    "main.js": "/sadkowa/KanbanTool/static/js/main.c7a702e5.js",
+    "static/js/787.86c09ce9.chunk.js": "/sadkowa/KanbanTool/static/js/787.86c09ce9.chunk.js",
+    "index.html": "/sadkowa/KanbanTool/index.html",
+    "main.967a3a5e.css.map": "/sadkowa/KanbanTool/static/css/main.967a3a5e.css.map",
+    "main.c7a702e5.js.map": "/sadkowa/KanbanTool/static/js/main.c7a702e5.js.map",
+    "787.86c09ce9.chunk.js.map": "/sadkowa/KanbanTool/static/js/787.86c09ce9.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.967a3a5e.css",
+    "static/js/main.c7a702e5.js"
+  ]
+}
