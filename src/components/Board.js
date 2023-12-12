@@ -2,7 +2,7 @@ import React from "react";
 import Column from "./Column";
 import { initColumns } from "../providers/initData";
 
-const Boarder = () => {
+const Board = () => {
     const columns = initColumns
 
     const renderColumns = () => {
@@ -10,10 +10,10 @@ const Boarder = () => {
     }
 
     return (
-        <section className="boarder">
+        <section className="board">
             {renderColumns()}
         </section>
     )
 }
 
-export default Boarder
+export default Board

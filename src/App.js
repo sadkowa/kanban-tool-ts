@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './App.css';
 import Header from './components/Header';
-import Boarder from './components/Boarder';
+import Board from './components/Board';
 import TaskForm from './components/TaskForm';
 import PopUp from './components/Popup';
 import TasksContext from './context/TasksContext';
@@ -89,7 +89,7 @@ function App() {
             <Header />
             {limitMessage && <PopUp exitPopUp={exitPopUp}>{limitMessage}</PopUp>}
             <Provider value={{ tasks, moveTask, deleteTask, addTask }}>
-                <Boarder />
+                <Board />
                 <TaskForm />
             </Provider>
         </>
