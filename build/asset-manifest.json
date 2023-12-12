@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/static/css/main.cd8fadca.css",
-    "main.js": "/static/js/main.efaf6092.js",
-    "static/js/787.1ba687c0.chunk.js": "/static/js/787.1ba687c0.chunk.js",
-    "index.html": "/index.html",
-    "main.cd8fadca.css.map": "/static/css/main.cd8fadca.css.map",
-    "main.efaf6092.js.map": "/static/js/main.efaf6092.js.map",
-    "787.1ba687c0.chunk.js.map": "/static/js/787.1ba687c0.chunk.js.map"
+    "main.css": "/sadkowa/KanbanTool/static/css/main.967a3a5e.css",
+    "main.js": "/sadkowa/KanbanTool/static/js/main.c7a702e5.js",
+    "static/js/787.86c09ce9.chunk.js": "/sadkowa/KanbanTool/static/js/787.86c09ce9.chunk.js",
+    "index.html": "/sadkowa/KanbanTool/index.html",
+    "main.967a3a5e.css.map": "/sadkowa/KanbanTool/static/css/main.967a3a5e.css.map",
+    "main.c7a702e5.js.map": "/sadkowa/KanbanTool/static/js/main.c7a702e5.js.map",
+    "787.86c09ce9.chunk.js.map": "/sadkowa/KanbanTool/static/js/787.86c09ce9.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.cd8fadca.css",
-    "static/js/main.efaf6092.js"
+    "static/css/main.967a3a5e.css",
+    "static/js/main.c7a702e5.js"
   ]
 }

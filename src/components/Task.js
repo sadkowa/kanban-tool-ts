@@ -26,7 +26,7 @@ const Task = (props)=> {
             <div className="task__buttons">
                 <button onClick={handleMoveLeftClick} className={`task__previous task--button ${idColumn === 1 ? "task__previous--none" : null}`}>{'<'}</button>
                 <button onClick={handleDeleteClick} className="task__delete task--button ">x</button>
-                <button onClick={handleMoveRightClick} className={`task__next task--button ${idColumn === 7 ? "task__next--none" : null}`}>{'>'}</button>
+                <button onClick={handleMoveRightClick} className={`task__next task--button ${idColumn === initColumns.length ? "task__next--none" : null}`}>{'>'}</button>
             </div>
         </div>
     )
