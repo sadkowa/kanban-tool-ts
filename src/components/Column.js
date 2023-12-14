@@ -14,8 +14,9 @@ const Column = (props) => {
 
     return (
         <section className="column">
-            <p className="column__limit">tasks limit: {limit}</p>
             <h3 className="column__header">{name}</h3>
+
+            <p className="column__limit">tasks limit: {limit}</p>
             <ul className="column__class-list">
                 {renderTasks()}
             </ul>
