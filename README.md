@@ -1,6 +1,6 @@
 # Kanban Tool
 
-[Click to find out how it works!](https://youtu.be/dOaGbPwpJBU)
+[Click to find out how it works!](https://sadkowa.github.io/KanbanTool/)
 
 This task involved implementing a Kanban system based on the MVP (Minimum Viable Product) concept.
 
@@ -13,8 +13,6 @@ Basic elements:
     - User (person responsible)
 - Ability to move tasks between columns
 - A form (with validation) that allows adding new tasks to the board
-
-<img src="./src/assets/Capture - app.JPG"/>
 
 ---
 
@@ -34,7 +32,7 @@ In this project, I used:
 
 When the task limit in a specific column is reached, a pop-up window with information about exceeding the limit appears.
 
-<img src="./src/assets/Capture - limit exceeded.JPG"/>
+<!-- <img src="./src/assets/Capture - limit exceeded.JPG"/> -->
 
 ---
 
