@@ -1,6 +1,6 @@
 import React, { useReducer, useState, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
-import { fields, initData, formValidate } from '../providers/formData'
+import { fields, initData, formValidate, priorityOptions } from '../providers/formData'
 import TasksContext from '../context/TasksContext';
 
 function TaskForm() {
@@ -8,6 +8,7 @@ function TaskForm() {
     const { addTask } = useContext(TasksContext)
 
     const reducer = (state, action) => {
+        
         if (action.type === 'reset') {
             return initData
         }
@@ -30,19 +31,56 @@ function TaskForm() {
         }
     }
 
-    const renderFields = () => fields.map((item) =>
-        <label
-            key={item.id}
-            className="form__label"
-            htmlFor={item.name} >{item.label}
+    const renderOptions = () => {
+       
+        return priorityOptions.map((item, index) => <option
+            key={index}
+            value={item}
+        >
+            {item}
+        </option>)
+    }
+    // const selectChange = (e)=> {
+    //     setPriority(e.target.value)
+    // }
+
+    const changeHandler = e => {
+        dispatch(e.target) 
+    }
+
+    const renderFields = () => fields.map((item) => {
+        
+        if (item.type === 'select') {
+            return (
+                <label
+                    key={item.id}
+                    className="form__label">
+                    Select task priority
+                    <select
+                        className='form__input'
+                        name={item.name}
+                        value={state[item.name]}
+                        onChange={changeHandler} >
+                        {renderOptions()}
+                    </select>
+                </label>)
+        }
+        else {
+            return <label
+                key={item.id}
+                className="form__label"
+                htmlFor={item.name} >{item.label}
             <input
                 id={item.name}
                 className='form__input'
                 type={item.type}
                 name={item.name}
                 value={state[item.name]}
-                onChange={(e) => dispatch(e.target)} />
-        </label>)
+                onChange={changeHandler} />
+            </label>
+        }
+    }
+    )
 
     const renderErrors = () => {
         const listItems = errorsList.map(err => <li key={uuid()}>{err}</li>)
