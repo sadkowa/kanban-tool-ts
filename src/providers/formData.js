@@ -1,5 +1,3 @@
-import { v4 as uuid } from 'uuid';
-
 const fields = [
     { name: 'name', type: 'text', label: "Task title", required: true, id: '1' },
     { name: 'user', type: 'text', label: "Worker name", required: true, id: '2' },
@@ -10,7 +8,6 @@ const initData = {
     user: '',
     priority: 'no priority',
     idColumn: 1,
-    id: uuid()
 }
 
 const priorityOptions = ['no priority', 'low priority', 'medium priority', 'high priority']

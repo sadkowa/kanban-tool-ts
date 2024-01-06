@@ -1,6 +1,6 @@
 import React from "react";
 
-const PopUp = (props) => {
+const PopUp = props => {
     return (
         <div className="popup__box">
             <div className="popup">

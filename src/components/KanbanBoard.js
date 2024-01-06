@@ -62,7 +62,7 @@ function KanbanBoard() {
         })
     }
 
-    const deleteTask = (id) => {
+    const deleteTask = id => {
         setTasks(prevTasks => {
             const changedTasks = prevTasks.filter(task => task.id !== id)
             setItem('tasks', changedTasks)
@@ -71,9 +71,9 @@ function KanbanBoard() {
         })
     }
 
-    const addTask = (task) => {
+    const addTask = task => {
         setTasks(prevTasks => {
-            const changedTasks = [...prevTasks, task]
+            const changedTasks = [task, ...prevTasks ]
             setItem('tasks', changedTasks)
 
             return changedTasks
