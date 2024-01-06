@@ -7,7 +7,7 @@ body {
   line-height: 70px;
   font-size: 1.4rem;
   text-align: center;
-  letter-spacing: 6px;
+  letter-spacing: 3px;
   font-weight: 400;
   background-color: white;
   color: #111;
@@ -16,7 +16,8 @@ body {
 
 .board {
   display: flex;
-  gap: 5px;
+  justify-content: space-between;
+  flex-wrap: wrap;
   max-width: 1200px;
   width: 90%;
   margin: 30px auto;
@@ -27,8 +28,8 @@ body {
 }
 
 .column {
-  flex-basis: 25%;
-  min-height: 400px;
+  flex-basis: 48%;
+  margin-bottom: 20px;
 }
 
 .column__header {
@@ -268,16 +269,30 @@ body {
   background-color: grey
 }
 
+.button--add-task {
+  position: fixed;
+  width: 50px;
+  padding: 5px;
+  right: 20px;
+  top: 10px;
+}
+
 @media(min-width: 600px) {
   .board {
+    flex-wrap: nowrap;
     gap: 10px;
     padding: 20px;
   }
 
   .header {
     font-size: 1.8rem;
+    letter-spacing: 6px;
   }
 
+  .column {
+    flex-basis: 25%;
+    min-height: 400px;
+  }
   .column__header {
     font-size: 14px
   }

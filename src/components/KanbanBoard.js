@@ -4,6 +4,8 @@ import Header from './Header';
 import Board from './Board';
 import TaskForm from './TaskForm';
 import Popup from './Popup';
+import Button from './Button';
+
 import TasksContext from '../context/TasksContext';
 import { useStorage } from '../hooks';
 import { initTasks } from '../providers/initData';
@@ -101,13 +103,14 @@ function KanbanBoard() {
                     openDeletePopup,
                     setDeleteId
                 }}>
+                <Board />
+                <TaskForm />
                 {popupMessage && <Popup
                     id={deleteId}
                     exitPopup={exitPopup}
                     deleteTask={deleteTask}>{popupMessage}
                 </Popup>}
-                <Board />
-                <TaskForm />
+                <Button>+ Add task</Button>
             </Provider>
         </>
     );
