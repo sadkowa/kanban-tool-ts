@@ -5,7 +5,7 @@ import TasksContext from '../context/TasksContext';
 
 function TaskForm() {
     const [errorsList, setErrorsList] = useState([])
-    const { addTask } = useContext(TasksContext)
+    const { addTask, formIsActive, setFormIsActive } = useContext(TasksContext)
 
     const reducer = (state, action) => {
         
@@ -45,6 +45,9 @@ function TaskForm() {
         dispatch(e.target) 
     }
 
+    const closeHandler = () => {
+        setFormIsActive(false)
+    }
     const renderFields = () => fields.map((item) => {
         
         if (item.type === 'select') {
@@ -100,7 +103,7 @@ function TaskForm() {
     }
 
     return (
-        <div className='form__box'>
+        <section className={formIsActive ? 'form__box form__box--active' : 'form__box'}>
             <form className="form" onSubmit={submitHandler}>
                 {renderFields()}
                 <label className="form__label" htmlFor='submit'>
@@ -109,11 +112,11 @@ function TaskForm() {
             </form>
             {errorsList.length !== 0 && renderErrors()}
                 <button
-                    // onClick={handleDeleteClick}
+                    onClick={closeHandler}
                     className="form__button task--button ">
                     &#x00d7;
                 </button>
-            </div>
+        </section>
     )
 }
 

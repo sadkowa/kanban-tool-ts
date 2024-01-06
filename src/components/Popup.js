@@ -29,7 +29,7 @@ const Popup = props => {
                     </button>
                     <button
                         onClick={skipHandler}
-                        className="popup__button popup__button--skip">
+                        className="popup__button popup__button--skip ">
                         no
                     </button>
                 </div>}

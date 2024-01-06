@@ -18,7 +18,8 @@ function KanbanBoard() {
 
     const [popupMessage, setPopupMessage] = useState('')
     const [deleteId, setDeleteId] = useState('')
-    console.log(deleteId)
+    const [formIsActive, setFormIsActive] = useState(false)
+    
     const [getItem, setItem] = useStorage()
 
     useEffect(() => {
@@ -101,7 +102,9 @@ function KanbanBoard() {
                     moveTask,
                     addTask,
                     openDeletePopup,
-                    setDeleteId
+                    setDeleteId,
+                    formIsActive,
+                    setFormIsActive
                 }}>
                 <Board />
                 <TaskForm />

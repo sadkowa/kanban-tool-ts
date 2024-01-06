@@ -5,17 +5,20 @@ import { initColumns } from "../providers/initData";
 const Task = props => {
     const { user, name, info, idColumn, id, priority } = props.task
 
-    const { moveTask, openDeletePopup, setDeleteId } = useContext(TasksContext)
+    const { moveTask, openDeletePopup, setDeleteId, setFormIsActive } = useContext(TasksContext)
 
     const handleMoveRightClick = () => {
+        setFormIsActive(false)
         moveTask(id, initColumns, 'moveRight')
     }
 
     const handleMoveLeftClick = () => {
+        setFormIsActive(false)
         moveTask(id, initColumns, 'moveLeft')
     }
 
     const handleDeleteClick = () => {
+        setFormIsActive(false)
         openDeletePopup()
         setDeleteId(id)
     }

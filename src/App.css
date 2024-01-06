@@ -123,7 +123,9 @@ body {
 }
 
 .task--button:hover {
-  background-color: #e4fafd;
+  color: white;
+  background-color: rgb(1, 156, 218);
+  border: 1px solid rgb(1, 156, 218);
 }
 
 .task__next--none, .task__previous--none {
@@ -189,11 +191,7 @@ body {
 }
 
 .form__input--button:hover {
-  background-color: rgb(200, 231, 243);
-}
-
-.form__input--button:hover {
-  background-color: rgb(200, 231, 243);
+  background-color: rgb(1, 156, 218);
 }
 
 .form__errors {
@@ -257,7 +255,9 @@ body {
 }
 
 .popup__button:hover {
-  background-color: rgb(231, 228, 228)
+  color: white;
+  background-color: rgb(1, 156, 218);
+  border: 1px solid rgb(1, 156, 218);
 }
 
 .popup__exit {
@@ -265,13 +265,7 @@ body {
   top: 10px;
   right: 10px;
   font-weight: bold;
-  border: none;
   color: rgb(146, 144, 144)
-}
-
-.popup__exit:hover {
-  color: rgb(43, 43, 43);
-  background-color: transparent;
 }
 
 .navigate__button {
@@ -295,6 +289,12 @@ body {
   color: white;
   background-color: rgb(1, 167, 233);
   font-size: 0.7rem;
+  transition: 0.3s ease;
+  cursor: pointer;
+}
+
+.button--add-task:hover {
+  background-color: rgb(1, 156, 218);
 }
 
 @media(min-width: 600px) {
@@ -353,7 +353,7 @@ body {
   .form__box {
     max-width: 600px;
     top: -500px;
-    top: 0;
+    /* top: 0; */
     right: 0;
     flex-direction: row;
     justify-content: center;
@@ -460,7 +460,10 @@ body {
 
   .form__box {
     top: -650px;
-    top:0
+  }
+
+  .form__box--active {
+    top: 0
   }
 
   .form__label {
