@@ -12,7 +12,7 @@ const initData = {
     idColumn: 1,
 }
 
-const priorityOptions = ['no priority', 'low priority', 'medium priority', 'high priority']
+const priorityOptions = ['no priority', 'low', 'medium', 'high']
 
 const formValidate = (state) => {
     const errors = []

@@ -3,18 +3,20 @@ import React, { useEffect, useState } from 'react';
 import Header from './Header';
 import Board from './Board';
 import TaskForm from './TaskForm';
-import PopUp from './Popup';
+import Popup from './Popup';
 import TasksContext from '../context/TasksContext';
 import { useStorage } from '../hooks';
 import { initTasks } from '../providers/initData';
-
+import { messages } from '../providers/popMessageData';
 
 function KanbanBoard() {
     const { Provider } = TasksContext
 
     const [tasks, setTasks] = useState(initTasks)
-    const [limitMessage, setLimitMessage] = useState('')
 
+    const [popupMessage, setPopupMessage] = useState('')
+    const [deleteId, setDeleteId] = useState('')
+    console.log(deleteId)
     const [getItem, setItem] = useStorage()
 
     useEffect(() => {
@@ -39,7 +41,7 @@ function KanbanBoard() {
                             const newTask = { ...item, idColumn: newIdColumn }
                             return newTask
                         } else {
-                            setLimitMessage(`"${columns[item.idColumn - 2].name}" limit exceeded!`)
+                            setPopupMessage(`"${columns[item.idColumn - 2].name}" ${messages.limit}!`)
                         }
                     }
 
@@ -51,7 +53,7 @@ function KanbanBoard() {
                             const newIdColumn = item.idColumn + 1
                             const newTask = { ...item, idColumn: newIdColumn }
                             return newTask
-                        } else setLimitMessage(`"${columns[item.idColumn].name}" limit exceeded!`)
+                        } else setPopupMessage(`"${columns[item.idColumn].name}" ${messages.limit}!`)
                     }
                 }
                 return item
@@ -80,15 +82,30 @@ function KanbanBoard() {
         })
     }
 
-    const exitPopUp = () => {
-        setLimitMessage('')
+    const openDeletePopup = () => {
+        setPopupMessage(messages.delete)
+    }
+
+    const exitPopup = () => {
+        setPopupMessage('')
     }
 
     return (
         <>
             <Header />
-            {limitMessage && <PopUp exitPopUp={exitPopUp}>{limitMessage}</PopUp>}
-            <Provider value={{ tasks, moveTask, deleteTask, addTask }}>
+            <Provider value={
+                {
+                    tasks,
+                    moveTask,
+                    addTask,
+                    openDeletePopup,
+                    setDeleteId
+                }}>
+                {popupMessage && <Popup
+                    id={deleteId}
+                    exitPopup={exitPopup}
+                    deleteTask={deleteTask}>{popupMessage}
+                </Popup>}
                 <Board />
                 <TaskForm />
             </Provider>

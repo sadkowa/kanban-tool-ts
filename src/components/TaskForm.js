@@ -40,9 +40,6 @@ function TaskForm() {
             {item}
         </option>)
     }
-    // const selectChange = (e)=> {
-    //     setPriority(e.target.value)
-    // }
 
     const changeHandler = e => {
         dispatch(e.target) 
