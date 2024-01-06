@@ -55,7 +55,7 @@ function TaskForm() {
                 <label
                     key={item.id}
                     className="form__label">
-                    Select task priority
+                    Task priority
                     <select
                         className='form__input'
                         name={item.name}
@@ -63,6 +63,20 @@ function TaskForm() {
                         onChange={changeHandler} >
                         {renderOptions()}
                     </select>
+                </label>)
+        }  else  if (item.type === 'textarea') {
+            return (
+                <label
+                    key={item.id}
+                    className="form__label">
+                    Task description
+                    <textarea
+                        className='form__input'
+                        name={item.name}
+                        value={state[item.name]}
+                        onChange={changeHandler} >
+                        {renderOptions()}
+                    </textarea>
                 </label>)
         }
         else {
