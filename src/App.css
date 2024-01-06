@@ -138,7 +138,7 @@ body {
   gap: 20px;
   align-items: center;
   position: fixed;
-  top: -370px;
+  top: -480px;
   width: 100%;
   margin: 0 auto 30px;
   padding: 20px;
@@ -195,8 +195,9 @@ body {
 }
 
 .form__errors {
-  margin-bottom: 40px;
+  margin-bottom: 20px;
   padding: 0;
+  font-size: 0.8rem;
   list-style: none;
   color: red
 }
@@ -352,12 +353,9 @@ body {
 
   .form__box {
     max-width: 600px;
-    top: -500px;
-    /* top: 0; */
+    top: -550px;
     right: 0;
-    flex-direction: row;
     justify-content: center;
-    margin-bottom: 60px;
     border-radius: 15px;
   }
 
@@ -366,7 +364,7 @@ body {
   }
 
   .form {
-    margin: 40px 0;
+    margin-top: 40px;
     gap: 20px
   }
 
@@ -382,23 +380,17 @@ body {
   }
 
   .form__input--button {
-    margin-top: 20px;
     font-size: 0.8rem;
     padding: 5px;
   }
 
   .form__errors {
-    margin-bottom: 0;
-    font-size: 16px;
+    font-size: 0.9rem;
   }
 
   .form__button {
     top: 25px;
     right: 25px;
-  }
-
-  .popup__error {
-    font-size: 18px;
   }
 
   .button--add-task {
@@ -481,8 +473,8 @@ body {
   }
 
   .form__errors {
-    margin-bottom: 0;
-    font-size: 18px;
+    margin-bottom: 30px;
+    font-size: 1rem;
   }
 
   .button--add-task {
