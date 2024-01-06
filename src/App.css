@@ -21,7 +21,7 @@ body {
   max-width: 1200px;
   width: 90%;
   margin: 30px auto;
-  padding: 10px;
+  padding: 10px 20px;
   background-color: rgb(215, 239, 248);
   box-shadow: 1px 1px 5px #aaa;
   border-radius: 15px;
@@ -58,10 +58,10 @@ body {
   justify-content: space-between;
   width: 100%;
   min-height: 150px;
-  padding: 7px;
+  padding: 15px;
   box-shadow: 1px 1px 5px #aaa;
   background-color: white;
-  margin-top: 5px;
+  margin-top: 10px;
   color: black;
   font-size: 12px;
   border-radius: 15px;
@@ -93,15 +93,15 @@ body {
 }
 
 .task__priority--low {
-  background-color: rgba(126, 202, 221, 0.5);
+  background-color: rgba(81, 195, 224, 0.767);
 }
 
 .task__priority--medium {
-  background-color: rgba(240, 213, 123, 0.5);
+  background-color: rgb(240, 213, 123);
 }
 
 .task__priority--high {
-  background-color: rgba(255, 68, 68, 0.5);
+  background-color: rgba(255, 4, 4, 0.527);
 }
 
 .task__buttons {
@@ -215,7 +215,7 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background-color: #e4e8eb;
+  background-color: #ffffff;
   box-shadow: 2px 2px 10px #797979;
   border-radius: 15px;
   height: 180px;
@@ -223,13 +223,13 @@ body {
 }
 
 .popup__message {
-  padding: 10px;
+  padding: 20px;
   text-align: center;
 }
 
 .popup__buttons {
   display: flex;
-  gap: 100px;
+  gap: 40px;
 }
 
 .popup__button {
@@ -271,10 +271,15 @@ body {
 
 .button--add-task {
   position: fixed;
-  width: 50px;
-  padding: 5px;
-  right: 20px;
-  top: 10px;
+  width: 60px;
+  padding: 5px 10px;
+  right: 10px;
+  top: 20px;
+  border: none;
+  border-radius: 13px;
+  color: white;
+  background-color: rgb(1, 167, 233);
+  font-size: 0.7rem;
 }
 
 @media(min-width: 600px) {
@@ -360,6 +365,14 @@ body {
   .popup__error {
     font-size: 18px;
   }
+
+  .button--add-task {
+    width: 120px;
+    padding: 7px 20px;
+    right: 50px;
+    top: 20px;
+    font-size: 0.8rem;
+  }
 }
 
 @media(min-width: 1100px) {
@@ -432,5 +445,14 @@ body {
   .form__errors {
     margin-bottom: 0;
     font-size: 18px;
+  }
+
+  .button--add-task {
+    width: 180px;
+    padding: 10px 30px;
+    right: 50px;
+    top: 30px;
+    font-size: 0.9rem;
+    border-radius: 20px;
   }
 }
