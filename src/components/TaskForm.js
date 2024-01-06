@@ -27,7 +27,7 @@ function TaskForm() {
 
         if (formErrors.length === 0) {
             dispatch({ type: 'reset' })
-            addTask(state) 
+            addTask({...state, id: uuid()}) 
         }
     }
 
