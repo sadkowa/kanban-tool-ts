@@ -140,8 +140,7 @@ body {
   position: fixed;
   top: -480px;
   width: 100%;
-  margin: 0 auto 30px;
-  padding: 20px;
+  padding: 20px 20px 50px;
   background-color: white;
   box-shadow: 1px 1px 5px #aaa;
   z-index: 1;
@@ -195,7 +194,6 @@ body {
 }
 
 .form__errors {
-  margin-bottom: 20px;
   padding: 0;
   font-size: 0.8rem;
   list-style: none;
@@ -215,6 +213,7 @@ body {
   left: 0;
   right: 0;
   background-color: rgba(2, 0, 0, 0.336);
+  z-index: 1
 }
 
 .popup {
@@ -233,7 +232,7 @@ body {
   box-shadow: 2px 2px 10px #797979;
   border-radius: 15px;
   height: 180px;
-  color: rgb(77, 76, 76)
+  color: rgb(77, 76, 76);
 }
 
 .popup__message {
@@ -292,6 +291,7 @@ body {
   font-size: 0.7rem;
   transition: 0.3s ease;
   cursor: pointer;
+  z-index: 0;
 }
 
 .button--add-task:hover {
@@ -452,6 +452,8 @@ body {
 
   .form__box {
     top: -650px;
+    padding-bottom: 60px;
+
   }
 
   .form__box--active {
@@ -473,7 +475,6 @@ body {
   }
 
   .form__errors {
-    margin-bottom: 30px;
     font-size: 1rem;
   }
 
