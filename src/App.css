@@ -135,17 +135,26 @@ body {
   flex-direction: column;
   gap: 20px;
   align-items: center;
-  width: 50%;
+  position: fixed;
+  top: -370px;
+  width: 100%;
   margin: 0 auto 30px;
   padding: 20px;
+  background-color: white;
   box-shadow: 1px 1px 5px #aaa;
-  border-radius: 15px;
+  z-index: 1;
+  transition: 0.3s ease-in-out;
+}
+
+.form__box--active {
+  top: 0
 }
 
 .form {
   display: flex;
   flex-direction: column;
   width: 100%;
+  margin-top: 20px;
 }
 
 .form__label {
@@ -166,16 +175,16 @@ body {
   font-size: 12px;
   padding: 3px;
   border-radius: 15px;
-  border: 2px solid rgb(175, 183, 187);
+  border: 1px solid rgb(175, 183, 187);
 }
 
 .form__input--button {
-  text-transform: uppercase;
-  background-color: transparent;
-  border: 2px solid rgb(0, 162, 255);
+  margin: 20px;
+  background-color: rgb(0, 162, 255);
+  border: none;
   letter-spacing: 1px;
-  font-weight: bold;
   font-size: 14px;
+  color: white;
   cursor: pointer;
 }
 
@@ -192,6 +201,12 @@ body {
   padding: 0;
   list-style: none;
   color: red
+}
+
+.form__button {
+  position: absolute;
+  top: 15px;
+  right: 15px;
 }
 
 .popup__box {
@@ -298,6 +313,7 @@ body {
     flex-basis: 25%;
     min-height: 400px;
   }
+
   .column__header {
     font-size: 14px
   }
@@ -335,31 +351,50 @@ body {
   }
 
   .form__box {
-    max-width: 800px;
+    max-width: 600px;
+    top: -500px;
+    top: 0;
+    right: 0;
     flex-direction: row;
     justify-content: center;
     margin-bottom: 60px;
+    border-radius: 15px;
+  }
+
+  .form__box--active {
+    top: 0;
+  }
+
+  .form {
+    margin: 40px 0;
+    gap: 20px
   }
 
   .form__label {
-    font-size: 16px;
-    max-width: 400px;
+    font-size: 0.8rem;
+    max-width: 300px;
     margin: 0 auto;
   }
 
   .form__input {
-    font-size: 14px;
+    font-size: 0.8rem;
     padding: 4px;
   }
 
   .form__input--button {
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 0.8rem;
+    padding: 5px;
   }
 
   .form__errors {
     margin-bottom: 0;
     font-size: 16px;
+  }
+
+  .form__button {
+    top: 25px;
+    right: 25px;
   }
 
   .popup__error {
@@ -424,12 +459,12 @@ body {
   }
 
   .form__box {
-    gap: 50px
+    top: -650px;
+    top:0
   }
 
   .form__label {
-    margin-top: 15px;
-    font-size: 20px;
+    font-size: 1rem;
   }
 
   .form__input {
@@ -439,7 +474,7 @@ body {
   .form__input--button {
     margin-top: 20px;
     padding: 6px;
-    font-size: 20px;
+    font-size: 1rem;
   }
 
   .form__errors {

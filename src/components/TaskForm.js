@@ -108,7 +108,12 @@ function TaskForm() {
                 </label>
             </form>
             {errorsList.length !== 0 && renderErrors()}
-        </div>
+                <button
+                    // onClick={handleDeleteClick}
+                    className="form__button task--button ">
+                    &#x00d7;
+                </button>
+            </div>
     )
 }
 
