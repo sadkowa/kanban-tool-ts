@@ -4,8 +4,8 @@ import { fields, initData, formValidate, priorityOptions } from '../providers/fo
 import TasksContext from '../context/TasksContext';
 
 function TaskForm() {
-    const [errorsList, setErrorsList] = useState([])
-    const { addTask, formIsActive, setFormIsActive } = useContext(TasksContext)
+    const [errorsList, setErrorsList] = useState({})
+    const { addTask, formIsActive, setFormIsActive} = useContext(TasksContext)
 
     const reducer = (state, action) => {
         
@@ -25,7 +25,7 @@ function TaskForm() {
 
         setErrorsList(formErrors)
 
-        if (formErrors.length === 0) {
+        if (Object.keys(formErrors).length === 0) {
             dispatch({ type: 'reset' })
             addTask({...state, id: uuid()}) 
         }
@@ -35,8 +35,7 @@ function TaskForm() {
        
         return priorityOptions.map((item, index) => <option
             key={index}
-            value={item}
-        >
+            value={item}>
             {item}
         </option>)
     }
@@ -46,61 +45,61 @@ function TaskForm() {
     }
 
     const closeHandler = () => {
-        setFormIsActive(false)
+        setErrorsList({})
+        setFormIsActive(false)   
     }
+
     const renderFields = () => fields.map((item) => {
-        
-        if (item.type === 'select') {
+        const { name, type, id, label } = item
+
+        if (type === 'select') {
             return (
                 <label
-                    key={item.id}
+                    key={id}
                     className="form__label">
                     Task priority
                     <select
                         className='form__input'
-                        name={item.name}
-                        value={state[item.name]}
+                        name={name}
+                        value={state[name]}
                         onChange={changeHandler} >
                         {renderOptions()}
                     </select>
                 </label>)
-        }  else  if (item.type === 'textarea') {
+        } else if (type === 'textarea') {
             return (
                 <label
-                    key={item.id}
+                    key={id}
                     className="form__label">
                     Task description
                     <textarea
-                        className='form__input form__input--textarea'
-                        name={item.name}
-                        value={state[item.name]}
+                        className={errorsList[name] ? 'form__input form__input--textarea form__input--error' : 'form__input form__input--textarea'}
+                        name={name}
+                        value={state[name]}
                         onChange={changeHandler} >
                         {renderOptions()}
                     </textarea>
-                </label>)
+                    <p className='form__errors'>{errorsList[name]}</p>
+                </label>
+            )
         }
         else {
             return <label
-                key={item.id}
+                key={id}
                 className="form__label"
-                htmlFor={item.name} >{item.label}
+                htmlFor={name} >{label}
             <input
-                id={item.name}
-                className='form__input'
-                type={item.type}
-                name={item.name}
-                value={state[item.name]}
+                    id={name}
+                    className={errorsList[name] ? 'form__input form__input--error' : 'form__input'}
+                    type={type}
+                    name={name}
+                    value={state[name]}
                 onChange={changeHandler} />
+                <p className='form__errors'>{errorsList[name]}</p>
             </label>
         }
     }
     )
-
-    const renderErrors = () => {
-        const listItems = errorsList.map(err => <li key={uuid()}>{err}</li>)
-
-        return <ul className='form__errors'>{listItems}</ul>
-    }
 
     return (
         <section className={formIsActive ? 'form__box form__box--active' : 'form__box'}>
@@ -110,7 +109,6 @@ function TaskForm() {
                     <input className='form__input form__input--button' id='submit' type="submit" name="submit" value="Add new task" />
                 </label>
             </form>
-            {errorsList.length !== 0 && renderErrors()}
                 <button
                     onClick={closeHandler}
                     className="form__button task--button ">

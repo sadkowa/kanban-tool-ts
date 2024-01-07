@@ -138,6 +138,7 @@ body {
   align-items: center;
   position: fixed;
   top: -480px;
+  right: 0;
   width: 100%;
   padding: 20px 20px 50px;
   background-color: white;
@@ -176,6 +177,10 @@ body {
   padding: 3px;
   border-radius: 15px;
   border: 1px solid rgb(175, 183, 187);
+}
+
+.form__input--error {
+  border-color: red;
 }
 
 .form__input--button {

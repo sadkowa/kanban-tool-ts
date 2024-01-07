@@ -15,14 +15,14 @@ const initData = {
 const priorityOptions = ['no priority', 'low', 'medium', 'high']
 
 const formValidate = (state) => {
-    const errors = []
+    const errors = {}
     fields.forEach(field => {
         const value = state[field.name]
 
         if (field.required) {
             if (value.length === 0) {
-                const newError = `"${field.label}" field is required.`
-                errors.push(newError)
+                const newError = 'This field is required.'
+                errors[field.name] = newError
             }
         }
     })
