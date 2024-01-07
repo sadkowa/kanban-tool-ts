@@ -14,8 +14,8 @@ const Popup = props => {
     const skipHandler = () => {
         exitPopup()
         setDeleteId('')
-
     }
+
     return (
         <div className="popup__box">
             <div className="popup">

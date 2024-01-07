@@ -56,7 +56,8 @@ function KanbanBoard() {
                             const newIdColumn = item.idColumn + 1
                             const newTask = { ...item, idColumn: newIdColumn }
                             return newTask
-                        } else setPopupMessage(`"${columns[item.idColumn].name}" ${messages.limit}!`)
+                        }
+                        else setPopupMessage(`${columns[item.idColumn].name} - ${messages.limit}!`)
                     }
                 }
                 return item
