@@ -71,7 +71,7 @@ function TaskForm() {
                     className="form__label">
                     Task description
                     <textarea
-                        className='form__input'
+                        className='form__input form__input--textarea'
                         name={item.name}
                         value={state[item.name]}
                         onChange={changeHandler} >

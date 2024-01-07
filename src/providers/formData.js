@@ -2,7 +2,7 @@ const fields = [
     { name: 'name', type: 'text', label: "Task title", required: true, id: '1' },
     { name: 'user', type: 'text', label: "Worker name", required: true, id: '2' },
     { name: 'priority', type: 'select', label: "Task priority", id: '3' },
-    { name: 'info', type: 'textarea', label: "Description", id: '4' },
+    { name: 'info', type: 'textarea', label: "Description", id: '4', required: true, },
 ]
 const initData = {
     name: '',

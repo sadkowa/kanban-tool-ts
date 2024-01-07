@@ -22,7 +22,7 @@ body {
   width: 90%;
   margin: 30px auto;
   padding: 10px 20px;
-  background-color: rgb(215, 239, 248);
+  background-color: rgb(215, 246, 255);
   box-shadow: 1px 1px 5px #aaa;
   border-radius: 15px;
 }
@@ -88,7 +88,6 @@ body {
   padding: 2px 4px;
   text-align: center;
   font-size: 0.7rem;
-  font-weight: lighter;
   border-radius: 5px;
 }
 
@@ -124,8 +123,8 @@ body {
 
 .task--button:hover {
   color: white;
-  background-color: rgb(1, 156, 218);
-  border: 1px solid rgb(1, 156, 218);
+  background-color: rgb(0, 162, 255);
+  border: 1px solid rgb(0, 162, 255);
 }
 
 .task__next--none, .task__previous--none {
@@ -316,7 +315,7 @@ body {
   }
 
   .column__header {
-    font-size: 14px
+    font-size: 1rem
   }
 
   .task {
@@ -417,7 +416,7 @@ body {
 
   .column__header {
     margin: 0 auto;
-    font-size: 1rem;
+    font-size: 1.2rem;
   }
 
   .column__limit {
@@ -466,6 +465,11 @@ body {
 
   .form__input {
     padding: 6px;
+  }
+
+  .form__input--textarea {
+    height: 60px;
+    resize: none
   }
 
   .form__input--button {
