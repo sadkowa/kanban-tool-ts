@@ -32,10 +32,10 @@ In this project, I used:
 
 When the task limit in a specific column is reached, a pop-up window with information about exceeding the limit appears.
 
-<div style="display: flex; flex-wrap: wrap; gap: 10px">
-    <img style="width: 55%; height: auto; border:1px solid black" src="./src/assets/Capture - desktop.JPG"/>
-    <img style="width: 25%; height: auto; border:1px solid black" src="./src/assets/Capture - mobile.JPG"/>
-    <img style="width: 81%; height: auto; border:1px solid black" src="./src/assets/Capture - form.JPG"/>
+<div style="display: flex; flex-wrap: wrap; gap: 10px; border:1px solid black; justify-content: space-between; border-radius:15px">
+    <img style="width: 68%; height: auto" src="./src/assets/Capture - desktop.JPG"/>
+    <img style="width: 30%; height: auto" src="./src/assets/Capture - mobile.JPG"/>
+    <img style="width: 100%; height: auto" src="./src/assets/Capture - form.JPG"/>
 </div>
 
 ---
