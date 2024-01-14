@@ -28,6 +28,7 @@ function TaskForm() {
         if (Object.keys(formErrors).length === 0) {
             dispatch({ type: 'reset' })
             addTask({...state, id: uuid()}) 
+            setFormIsActive(false)
         }
     }
 
