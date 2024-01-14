@@ -34,6 +34,7 @@ When the task limit in a specific column is reached, a pop-up window with inform
 
 <img style="border-radius: 15px;" src="./src/assets/Capture.JPG"/>
 
+
 <!-- <div style="display: flex; flex-wrap: wrap; gap: 10px; border:1px solid black; justify-content: center; border-radius:15px">
     <img style="border-radius: 15px; height: 380px" src="./src/assets/Capture - desktop.JPG"/>
     <img style=" border-radius: 15px;height: 380px" src="./src/assets/Capture - mobile.JPG"/>
