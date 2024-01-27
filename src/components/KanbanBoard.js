@@ -8,7 +8,7 @@ import Button from './Button';
 
 import TasksContext from '../context/TasksContext';
 import { useStorage } from '../hooks';
-import { initTasks } from '../providers/initData';
+import { initTasks, initColumns } from '../providers/initData';
 import { messages } from '../providers/popMessageData';
 
 function KanbanBoard() {
@@ -107,7 +107,7 @@ function KanbanBoard() {
                     formIsActive,
                     setFormIsActive
                 }}>
-                <Board />
+                <Board initColumns={initColumns}/>
                 <TaskForm />
                 {popupMessage && <Popup
                     id={deleteId}

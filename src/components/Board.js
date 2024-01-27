@@ -1,12 +1,10 @@
 import React from "react";
 import Column from "./Column";
-import { initColumns } from "../providers/initData";
 
-const Board = () => {
-    const columns = initColumns
+const Board = ({initColumns}) => {
 
     const renderColumns = () => {
-        return columns.map(item => <Column key={item.id} item={item}/>)
+        return initColumns.map(item => <Column key={item.id} item={item}/>)
     }
 
     return (
