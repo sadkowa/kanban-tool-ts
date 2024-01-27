@@ -25,7 +25,7 @@ const Task = props => {
 
     return(
         <div className="task" >
-            {priority !== 'no priority' && <div className={`task__priority task__priority--${priority}`}>{priority} priority</div>}
+            {priority !== 'no priority' && <p className={`task__priority task__priority--${priority}`}>{priority} priority</p>}
             <h4 className="task__name">{name}</h4>
             <p className="task__description">{info}</p>
             <h4 className="task__user">{user} </h4>
