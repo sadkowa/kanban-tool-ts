@@ -41,7 +41,7 @@ describe('<Task>', () => {
 
         expect(optionElements.length).toBe(4)
     })
-    it.only('should render two buttons', async () => {
+    it('should render two buttons', async () => {
         renderComponent(contextValues)
 
         const buttonElements = screen.getAllByRole('button')
