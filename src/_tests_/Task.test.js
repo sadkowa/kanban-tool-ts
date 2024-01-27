@@ -67,7 +67,6 @@ describe('<Task>', () => {
         const buttonElements = screen.getAllByRole('button')
 
         expect(buttonElements.length).toBe(3)
-
     })
 })
 
