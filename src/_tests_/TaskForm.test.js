@@ -2,15 +2,6 @@ import { render, screen } from "@testing-library/react"
 import TaskForm from "../components/TaskForm"
 import TasksContext from "../context/TasksContext"
 
-const initTask = {
-    id: 1,
-    name: 'Appearance of the website',
-    info: 'Define the color scheme and visual style for the webpage.',
-    idColumn: 1,
-    user: 'Ann Rogers',
-    priority: 'high'
-}
-
 const contextValues = {
     addTask: () => { },
     formIsActive: () => { },
@@ -32,7 +23,7 @@ describe('<Task>', () => {
 
         const inputElements = screen.getAllByRole('textbox')
 
-        expect(inputElements.length).toBe(3)
+        expect(inputElements.length).toBe(3) 
     })
     it('should render four options in select', async () => {
         renderComponent(contextValues)
