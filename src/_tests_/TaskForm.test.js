@@ -88,7 +88,7 @@ describe('<Task>', () => {
 
         expect(selectElement).toHaveValue("medium");
     })
-    it.only('should show errors when form is submitted with empty fields', async () => {
+    it('should show errors when form is submitted with empty fields', async () => {
         renderComponent()
 
         const submitButtonElement = screen.getByRole('button', {

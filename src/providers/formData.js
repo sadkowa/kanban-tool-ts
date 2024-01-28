@@ -28,13 +28,9 @@ const fieldValidate = (field, value) => {
 const formValidate = state => {
     const errors = {}
     fields.forEach(field => {
-        const value = state[field.name]
-
-        if (field.required) {
-            if (value.length === 0) {
-                const newError = 'This field is required.'
-                errors[field.name] = newError
-            }
+        const newError = fieldValidate(field, state[field.name])
+        if (newError) {
+            errors[field.name] = newError
         }
     })
 
