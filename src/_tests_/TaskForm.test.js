@@ -88,6 +88,18 @@ describe('<Task>', () => {
 
         expect(selectElement).toHaveValue("medium");
     })
-    
+    it.only('should show errors when form is submitted with empty fields', async () => {
+        renderComponent()
+
+        const submitButtonElement = screen.getByRole('button', {
+            name: "Add new task"
+        })
+
+        userEvent.click(submitButtonElement)
+
+        const errorElements = await screen.findAllByText('This field is required.')
+
+        expect(errorElements.length).toBe(3);
+    })
 })
 
