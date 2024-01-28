@@ -5,7 +5,7 @@ describe('<Header>', () => {
     it('sholud render "kanban tool" heading', async () => {
         render(<Header />)
         const headingElement = screen.getByRole('heading', {
-            name: /kanban tool/i
+            name: /kanban board/i
         })
 
         expect(headingElement).toBeInTheDocument()
