@@ -76,7 +76,7 @@ function TaskForm() {
                         className='form__input'
                         name={name}
                         value={state[name]}
-                        onChange={changeHandler} >
+                        onChange={(e) => changeHandler(e, item)} >
                         {renderOptions()}
                     </select>
                 </label>)
