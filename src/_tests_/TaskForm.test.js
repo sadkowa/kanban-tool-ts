@@ -1,26 +1,16 @@
-import { render, screen, fireEvent } from "@testing-library/react"
+import { render, screen } from "@testing-library/react"
 import userEvent from "@testing-library/user-event"
 import TaskForm from "../components/TaskForm"
 import TasksContext from "../context/TasksContext"
-
-const mockedAddTask = jest.fn()
-const mockedFormIsActive = jest.fn()
-const mockedSetFormIsActive = jest.fn()
-
-// const contextValues = {
-//     addTask: mockedAddTask,
-//     formIsActive: mockedFormIsActive,
-//     setFormIsActive: mockedSetFormIsActive
-// }
 
 const renderComponent = () => {
     const { Provider } = TasksContext
 
     return render(
         <Provider value={{
-            addTask: mockedAddTask,
-            formIsActive: mockedFormIsActive,
-            setFormIsActive: mockedSetFormIsActive
+            addTask: jest.fn(),
+            formIsActive: jest.fn(),
+            setFormIsActive: jest.fn()
         }}>
             <TaskForm />
         </Provider>

@@ -12,25 +12,23 @@ const initTask = {
     priority: 'high'
 }
 
-const contextValues = {
-    moveTask: () => { },
-    openDeletePopup: () => { },
-    setDeleteId: () => { },
-    setFormIsActive: () => { }
-}
-
-const renderComponent = value => {
+const renderComponent = () => {
     const { Provider } = TasksContext
 
     return render(
-        <Provider value={value}>
+        <Provider value={{
+            moveTask: jest.fn(),
+            openDeletePopup: jest.fn(),
+            setDeleteId: jest.fn(),
+            setFormIsActive: jest.fn()
+        }}>
             <Task task={initTask} />
         </Provider>
     )
 }
 describe('<Task>', () => {
     it('should render heading: appearance of the website', async () => {
-        renderComponent(contextValues)
+        renderComponent()
 
         const headingElement = screen.getByRole('heading', {
             name: /appearance of the website/i
@@ -39,7 +37,7 @@ describe('<Task>', () => {
         expect(headingElement).toBeInTheDocument()
     })
     it('should render heading: Ann Rogers', async () => {
-        renderComponent(contextValues)
+        renderComponent()
 
         const headingElement = screen.getByRole('heading', {
             name: /Ann Rogers/i
@@ -48,21 +46,21 @@ describe('<Task>', () => {
         expect(headingElement).toBeInTheDocument()
     })
     it('should render text: high', async () => {
-        renderComponent(contextValues)
+        renderComponent()
 
         const textElement = screen.getByText(/high/i)
 
         expect(textElement).toBeInTheDocument()
     })
     it('should render text description', async () => {
-        renderComponent(contextValues)
+        renderComponent()
 
         const textElement = screen.getByText(/Define the color/i)
 
         expect(textElement).toBeInTheDocument()
     })
     it('should render 3 buttons', async () => {
-        renderComponent(contextValues)
+        renderComponent()
 
         const buttonElements = screen.getAllByRole('button')
 

@@ -2,15 +2,13 @@ import { render, screen } from "@testing-library/react"
 import Popup from "../components/Popup"
 import TasksContext from "../context/TasksContext"
 
-const contextValues = {
-    setDeleteId: () => { }
-}
-
-const renderComponent = (value, id) => {
+const renderComponent = id => {
     const { Provider } = TasksContext
 
     return render(
-        <Provider value={value}>
+        <Provider value={{
+            setDeleteId: jest.fn()
+        }}>
             <Popup id={id}>Do you want to delete it?</Popup>
         </Provider>
     )
@@ -19,7 +17,7 @@ describe('<Popup>', () => {
     it('should render same message as props.children', () => {
         const deleteId = ''
 
-        renderComponent(contextValues, deleteId)
+        renderComponent(deleteId)
 
         const messageElement = screen.getByText('Do you want to delete it?')
 
@@ -28,7 +26,7 @@ describe('<Popup>', () => {
     it('should render one button', () => {
         const deleteId = ''
 
-        renderComponent(contextValues, deleteId)
+        renderComponent(deleteId)
 
         const buttonElement = screen.getByRole('button')
 
@@ -36,7 +34,8 @@ describe('<Popup>', () => {
     })
     it('should render three buttons', () => {
         const deleteId = 2
-        renderComponent(contextValues, { deleteId })
+
+        renderComponent(deleteId)
 
         const buttonElements = screen.getAllByRole('button')
 

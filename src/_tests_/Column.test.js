@@ -29,22 +29,20 @@ const initTasks = [
     }
 ]
 
-const contextValues = {
-    tasks: initTasks
-}
-
-const renderComponent = value => {
+const renderComponent = () => {
     const { Provider } = TasksContext
 
     return render(
-        <Provider value={value}>
+        <Provider value={{
+            tasks: initTasks
+        }}>
             <Column item={{ name: "In progress", limit: "3", id: 2 }} />
         </Provider>
     )
 }
 describe('<Column>', () => {
     it('should render heading: in progress', () => {
-        renderComponent(contextValues)
+        renderComponent()
 
         const headingElement = screen.getByRole('heading', {
             name: /in progress/i
@@ -53,14 +51,14 @@ describe('<Column>', () => {
         expect(headingElement).toBeInTheDocument()
     })
     it('should render paragraph containing tasks limit: 3', () => {
-        renderComponent(contextValues)
+        renderComponent()
 
         const paragraphElement = screen.getByText(/3/i)
 
         expect(paragraphElement).toBeInTheDocument()
     })
     it('should render two paragraphs containing: priority', () => {
-        renderComponent(contextValues)
+        renderComponent()
 
         const headingElements = screen.getAllByText(/priority/i)
 
