@@ -14,7 +14,18 @@ const initData = {
 
 const priorityOptions = ['no priority', 'low', 'medium', 'high']
 
-const formValidate = (state) => {
+const fieldValidate = (field, value) => {
+    let error
+
+    if (field.required) {
+        if (value.length === 0) {
+            error = 'This field is required.'
+        }
+    }
+    return error
+}
+
+const formValidate = state => {
     const errors = {}
     fields.forEach(field => {
         const value = state[field.name]
@@ -30,4 +41,4 @@ const formValidate = (state) => {
     return errors
 }
 
-export { fields, initData, formValidate, priorityOptions } 
+export { fields, initData, fieldValidate, formValidate, priorityOptions } 

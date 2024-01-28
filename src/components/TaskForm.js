@@ -1,6 +1,6 @@
 import React, { useReducer, useState, useContext } from 'react';
 import { v4 as uuid } from 'uuid';
-import { fields, initData, formValidate, priorityOptions } from '../providers/formData'
+import { fields, initData, fieldValidate, formValidate, priorityOptions } from '../providers/formData'
 import TasksContext from '../context/TasksContext';
 
 function TaskForm() {
@@ -17,7 +17,7 @@ function TaskForm() {
 
     const [state, dispatch] = useReducer(reducer, initData)
 
-    const submitHandler = (e) => {
+    const submitHandler = e => {
         e.preventDefault()
         setErrorsList([])
 
@@ -41,8 +41,21 @@ function TaskForm() {
         </option>)
     }
 
-    const changeHandler = e => {
+    const changeHandler = (e, item) => {
+        setErrorsList({
+            ...errorsList, [item.name]: ''
+        })
         dispatch(e.target) 
+    }
+
+    const blurHandler = (e, item) => {
+        const newError = fieldValidate(item, e.target.value)
+
+        if (newError) {
+            setErrorsList({
+                ...errorsList, [item.name]: newError
+            })
+        }
     }
 
     const closeHandler = () => {
@@ -77,7 +90,8 @@ function TaskForm() {
                         className={errorsList[name] ? 'form__input form__input--textarea form__input--error' : 'form__input form__input--textarea'}
                         name={name}
                         value={state[name]}
-                        onChange={changeHandler} >
+                        onChange={e => changeHandler(e, item)}
+                        onBlur={(e) => blurHandler(e, item)} >
                         {renderOptions()}
                     </textarea>
                     <p className='form__errors'>{errorsList[name]}</p>
@@ -95,7 +109,8 @@ function TaskForm() {
                     type={type}
                     name={name}
                     value={state[name]}
-                onChange={changeHandler} />
+                    onChange={e => changeHandler(e, item)}
+                    onBlur={(e) => blurHandler(e, item)} />
                 <p className='form__errors'>{errorsList[name]}</p>
             </label>
         }
@@ -106,9 +121,12 @@ function TaskForm() {
         <section className={formIsActive ? 'form__box form__box--active' : 'form__box'}>
             <form className="form" onSubmit={submitHandler}>
                 {renderFields()}
-                <label className="form__label" htmlFor='submit'>
-                    <input className='form__input form__input--button' id='submit' type="submit" name="submit" value="Add new task" />
-                </label>
+                <input
+                    className='form__input form__input--button'
+                    id='submit'
+                    type="submit"
+                    name="submit"
+                    value="Add new task" />
             </form>
                 <button
                     onClick={closeHandler}
