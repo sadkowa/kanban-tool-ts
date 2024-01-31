@@ -29,6 +29,7 @@ In this project, I used:
     - useContext
     - useStorage (Custom Hook - provides methods for storing and retrieving data from localStorage)
 - Context Api - passing data within the application
+- Jest and React Testing Library - creating unit and integration tests
 
 When the task limit in a specific column is reached, a pop-up window with information about exceeding the limit appears.
 
