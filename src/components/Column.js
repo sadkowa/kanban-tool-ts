@@ -13,7 +13,7 @@ const Column = props => {
     }
 
     return (
-        <section className="column">
+        <section className="column" data-testid={`column-${id}`}>
             <h3 className="column__header">{name}</h3>
 
             <p className="column__limit">tasks limit: {limit}</p>

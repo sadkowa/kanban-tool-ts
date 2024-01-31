@@ -24,7 +24,7 @@ const Task = props => {
     }
 
     return(
-        <div className="task" >
+        <div className="task" data-testid={`task-${id}`} >
             {priority !== 'no priority' && <p className={`task__priority task__priority--${priority}`}>{priority} priority</p>}
             <h4 className="task__name">{name}</h4>
             <p className="task__description">{info}</p>
