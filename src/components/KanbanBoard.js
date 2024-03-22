@@ -79,7 +79,7 @@ function KanbanBoard() {
 
     const addTask = task => {
         setTasks(prevTasks => {
-            const changedTasks = [task, ...prevTasks ]
+            const changedTasks = [{ ...task, idColumn: 1 }, ...prevTasks]
             setItem('tasks', changedTasks)
 
             return changedTasks
