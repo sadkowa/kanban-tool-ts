@@ -3,8 +3,8 @@ import Task from "./Task";
 import TasksContext from "../context/TasksContext";
 
 
-const Column = props => {
-    const { name, limit, id } = props.item
+const Column = ({ item }) => {
+    const { name, limit, id } = item
     const {tasks} = useContext(TasksContext)
     
     const renderTasks = () => {
