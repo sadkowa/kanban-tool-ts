@@ -1,4 +1,4 @@
-type FieldType = {
+type FormFieldType = {
 	id: number;
 	name: string;
 	type: string;
@@ -6,7 +6,7 @@ type FieldType = {
 	required?: boolean;
 };
 
-const fields: FieldType[] = [
+const fields: FormFieldType[] = [
 	{
 		id: 1,
 		name: "name",
@@ -36,14 +36,14 @@ const fields: FieldType[] = [
 	},
 ];
 
-type InitDataType = {
+type InitFormDataType = {
 	name: string;
 	user: string;
 	priority: string;
 	info: string;
 };
 
-const initFormData: InitDataType = {
+const initFormData: InitFormDataType = {
 	name: "",
 	user: "",
 	priority: "no priority",
@@ -52,7 +52,7 @@ const initFormData: InitDataType = {
 
 const priorityOptions = ["no priority", "low", "medium", "high"];
 
-const fieldValidate = (field: FieldType, value: string): string | undefined => {
+const fieldValidate = (field: FormFieldType, value: string): string | undefined => {
 	let error;
 
 	if (field.required) {
@@ -63,7 +63,7 @@ const fieldValidate = (field: FieldType, value: string): string | undefined => {
 	return error;
 };
 
-const formValidate = (state: InitDataType) => {
+const formValidate = (state: InitFormDataType) => {
 
 	type Errors = {
 		[name: string]: string;
@@ -74,7 +74,7 @@ const formValidate = (state: InitDataType) => {
 	fields.forEach((field) => {
 		const newError = fieldValidate(
 			field,
-			state[field.name as keyof InitDataType]
+			state[field.name as keyof InitFormDataType]
 		);
 		if (newError) {
 			errors[field.name] = newError;
