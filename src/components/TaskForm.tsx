@@ -1,4 +1,4 @@
-import React, {
+import {
 	useReducer,
 	useState,
 	useContext,
@@ -49,7 +49,8 @@ function TaskForm() {
 
 		if (Object.keys(formErrors).length === 0) {
 			dispatch({ type: "reset" });
-			addTask({ ...state, id: uuid() });
+			
+			addTask({ ...state, id: uuid(), idColumn: 1 });
 			setFormIsActive(false);
 		}
 	};
@@ -62,8 +63,10 @@ function TaskForm() {
 		));
 	};
 
+	type HTMLOptionType = HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement
+	
 	const changeHandler = (
-		e: ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+		e: ChangeEvent<HTMLOptionType>,
 		item: FormFieldType
 	) => {
 		setErrorsList({
@@ -75,7 +78,7 @@ function TaskForm() {
 	};
 
 	const blurHandler = (
-		e: FocusEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>,
+		e: FocusEvent<HTMLOptionType>,
 		item: FormFieldType
 	) => {
 		const newError = fieldValidate(item, e.target.value);
