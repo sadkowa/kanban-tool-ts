@@ -1,6 +1,6 @@
 {
-  "homepage": "https://sadkowa.github.io/KanbanTool",
-  "name": "kanban-tool",
+  "homepage": "https://github.com/sadkowa/kanban-tool-ts",
+  "name": "kanban-tool-ts",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
