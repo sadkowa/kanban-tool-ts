@@ -1,17 +1,4 @@
-type ColumnType = {
-	id: number;
-	name: string;
-	limit: number;
-};
-
-type TaskType = {
-	id: number;
-	name: string;
-	info: string;
-	idColumn: number;
-	user: string;
-	priority: string;
-};
+import { ColumnType, TaskType } from "../types/types";
 
 const initColumns: ColumnType[] = [
 	{ id: 1, name: "To do", limit: 6 },

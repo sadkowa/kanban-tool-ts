@@ -1,3 +1,20 @@
+export type ColumnType = {
+	id: number;
+	name: string;
+	limit: number;
+};
+
+export type TaskIdType = number | string | null
+
+export type TaskType = {
+	id: TaskIdType;
+	idColumn: number;
+	name: string;
+	user: string;
+	priority: string;
+	info: string;
+};
+
 export type FormFieldType = {
 	id: number;
 	name: string;
@@ -14,6 +31,5 @@ export type InitFormDataType = {
 };
 
 export type ReducerAction = {
-    type: string,
-    
-}
+	type: string;
+};
