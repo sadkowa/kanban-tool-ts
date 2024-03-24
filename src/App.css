@@ -1,11 +1,20 @@
 :root {
-  --body_background: white;
+  --body_background: rgb(255, 255, 255);
   --body_color: rgb(17, 17, 17);
   --board_background: rgb(215, 246, 255);
-  --header_background: white;
-  --task_background: white;
-  --theme_background: rgb(233, 249, 253);
-  --box-shadow-color: #ccc
+  --header_background: rgb(255, 255, 255);
+  --task_background: rgb(255, 255, 255);
+  --theme_background: rgb(156, 234, 248);
+  --box-shadow-color: rgb(204, 204, 204);
+  --font-size-mobile-small: 1rem;
+  --font-size-mobile-medium: 1.2rem;
+  --font-size-mobile-large: 2rem;
+  --font-size-tablet-small: 1.1rem;
+  --font-size-tablet-medium: 1.3rem;
+  --font-size-tablet-large: 2.2rem;
+  --font-size-desktop-small: 1.3rem;
+  --font-size-desktop-medium: 1.4rem;
+  --font-size-desktop-large: 2.4rem;
 }
 
 [data-theme='dark'] {
@@ -14,14 +23,18 @@
   --board_background: rgb(17, 55, 87);
   --header_background: rgb(56, 56, 56);
   --task_background: rgb(56, 56, 56);
-  --theme_background: #7c7a7a;
-  --box-shadow-color: #252525;
+  --theme_background: rgb(124, 123, 123);
+  --box-shadow-color: rgb(37, 37, 37);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+html {
+  font-size: 12px;
 }
 
 body {
@@ -34,7 +47,7 @@ body {
 
 .header {
   line-height: 70px;
-  font-size: 1.4rem;
+  font-size: var(--font-size-mobile-large);
   text-align: center;
   letter-spacing: 3px;
   font-weight: 400;
@@ -65,7 +78,7 @@ body {
   text-align: center;
   margin: auto 5px;
   color: var(--body_color);
-  font-size: 0.9rem;
+  font-size: var(--font-size-mobile-medium);
   font-weight: 400;
 }
 
@@ -73,7 +86,7 @@ body {
   text-align: center;
   color: #aaa;
   margin-bottom: 20px;
-  font-size: 12px;
+  font-size: var(--font-size-mobile-medium);
 }
 
 .column__class-list {
@@ -91,13 +104,12 @@ body {
   background-color: var(--task_background);
   margin-top: 10px;
   color: var(--body_color);
-  font-size: 12px;
   border-radius: 15px;
 }
 
 .task__name, .task__user {
   padding: 5px 0;
-  font-size: 0.7rem;
+  font-size: var(--font-size-mobile-medium);
   font-weight: 400;
 }
 
@@ -107,16 +119,15 @@ body {
 }
 
 .task__description {
-  font-weight: lighter;
-  margin-top: 10px;
-  color: var(--body_color);
-  font-size: 0.6rem;
+  margin: 10px 0;
+  color: rgb(153, 153, 153);
+  font-size: var(--font-size-mobile-small);
 }
 
 .task__priority {
   padding: 2px 4px;
   text-align: center;
-  font-size: 0.7rem;
+  font-size: var(--font-size-mobile-small);
   border-radius: 10px;
 }
 
@@ -144,7 +155,7 @@ body {
   color: #aaa;
   border: 1px solid #aaa;
   border-radius: 4px;
-  font-size: 1rem;
+  font-size: var(--font-size-mobile-medium);
   cursor: pointer;
   width: 20px;
   transition: 0.3s;
@@ -194,7 +205,7 @@ body {
   width: 100%;
   max-width: 300px;
   margin: 10px auto 0;
-  font-size: 12px;
+  font-size: var(--font-size-mobile-medium);
   color: var(--body_color);
   letter-spacing: 1px;
 }
@@ -202,7 +213,7 @@ body {
 .form__input {
   width: 100%;
   margin-top: 5px;
-  font-size: 12px;
+  font-size: var(--font-size-mobile-small);
   padding: 3px;
   color: var(--body_color);
   border-radius: 15px;
@@ -218,10 +229,11 @@ body {
   width: 100%;
   max-width: 300px;
   margin: 20px auto 0;
+  padding: 6px;
   background-color: rgb(0, 162, 255);
   border: none;
   letter-spacing: 1px;
-  font-size: 14px;
+  font-size: var(--font-size-mobile-medium);
   color: white;
   cursor: pointer;
 }
@@ -232,7 +244,7 @@ body {
 
 .form__errors {
   padding: 0;
-  font-size: 0.8rem;
+  font-size: var(--font-size-mobile-small);
   list-style: none;
   color: red
 }
@@ -275,6 +287,7 @@ body {
 .popup__message {
   padding: 20px;
   text-align: center;
+  font-size: var(--font-size-mobile-medium);
 }
 
 .popup__buttons {
@@ -318,15 +331,15 @@ body {
 
 .button--add-task {
   position: fixed;
-  width: 40px;
-  padding: 5px 2px;
+  width: 44px;
+  padding: 5px 3px;
   right: 10px;
   top: 20px;
   border: none;
   border-radius: 13px;
   color: white;
   background-color: rgb(1, 167, 233);
-  font-size: 0.7rem;
+  font-size: var(--font-size-mobile-small);
   transition: 0.3s ease;
   cursor: pointer;
   z-index: 0;
@@ -400,7 +413,7 @@ body {
 
 .dark_mode__label svg.moon {
   left: 32px;
-  fill: #8f8f8f;
+  fill: #0000005b;
   transition: 0.5s;
 }
 
@@ -420,7 +433,7 @@ body {
   }
 
   .header {
-    font-size: 1.8rem;
+    font-size: var(--font-size-tablet-large);
     letter-spacing: 6px;
   }
 
@@ -430,18 +443,17 @@ body {
   }
 
   .column__header {
-    font-size: 1rem
+    font-size: var(--font-size-tablet-medium);
   }
 
   .task {
     margin-top: 10px;
     padding: 8px;
-    font-size: 14px;
   }
 
   .task__name, .task__user {
     padding: 5px 0;
-    font-size: 0.8rem;
+    font-size: var(--font-size-tablet-medium);
     font-weight: 400;
   }
 
@@ -451,18 +463,21 @@ body {
   }
 
   .task__description {
-    font-weight: lighter;
-    font-size: 0.7rem;
+    font-size: var(--font-size-tablet-small);
   }
 
   .task__priority {
-    margin-bottom: 7px;
+    margin: 5px 0;
     padding: 3px 4px;
+  }
+
+  .task__buttons {
+    margin: 10px 0 5px
   }
 
   .task--button {
     width: 22px;
-    font-size: 1rem;
+    font-size: var(--font-size-tablet-medium);
   }
 
   .form__box {
@@ -483,28 +498,36 @@ body {
   }
 
   .form__label {
-    font-size: 0.8rem;
+    font-size: var(--font-size-tablet-medium);
     max-width: 300px;
     margin: 0 auto;
   }
 
   .form__input {
-    font-size: 0.8rem;
+    font-size: var(--font-size-tablet-small);
     padding: 4px;
   }
 
   .form__input--button {
-    font-size: 0.8rem;
+    font-size: var(--font-size-tablet-medium);
     padding: 5px;
   }
 
   .form__errors {
-    font-size: 0.9rem;
+    font-size: var(--font-size-tablet-small);
   }
 
   .form__button {
     top: 25px;
     right: 25px;
+  }
+
+  .popup__message {
+    font-size: var(--font-size-tablet-medium);
+  }
+
+  .popup__button {
+    font-size: var(--font-size-tablet-small);
   }
 
   .button--add-task {
@@ -513,7 +536,7 @@ body {
     border-radius: 20px;
     right: 30px;
     top: 20px;
-    font-size: 0.8rem;
+    font-size: var(--font-size-tablet-small);
   }
 
   .dark_mode {
@@ -560,7 +583,7 @@ body {
 @media(min-width: 1100px) {
   .header {
     line-height: 90px;
-    font-size: 2.2rem;
+    font-size: var(--font-size-desktop-large);
   }
 
   .board {
@@ -572,11 +595,11 @@ body {
 
   .column__header {
     margin: 0 auto;
-    font-size: 1.2rem;
+    font-size: var(--font-size-desktop-medium);
   }
 
   .column__limit {
-    font-size: 0.9rem;
+    font-size: var(--font-size-desktop-small);
   }
 
   .task {
@@ -587,27 +610,22 @@ body {
 
   .task__name, .task__user {
     padding: 10px 0;
-    font-size: 0.9rem;
+    font-size: var(--font-size-desktop-medium);
   }
 
   .task__description {
-    font-size: 0.8rem;
+    font-size: var(--font-size-desktop-small);
   }
 
   .task__priority {
     padding: 3px 5px;
-    font-size: 0.8rem;
-  }
-
-  .task__priority {
-    margin-bottom: 7px;
-    padding: 4px 4px;
+    font-size: var(--font-size-desktop-small);
   }
 
   .task--button {
     padding: 2px;
     width: 25px;
-    font-size: 1.2rem;
+    font-size: var(--font-size-desktop-medium);
   }
 
   .form__box {
@@ -621,7 +639,7 @@ body {
   }
 
   .form__label {
-    font-size: 1rem;
+    font-size: var(--font-size-desktop-medium);
   }
 
   .form__input {
@@ -636,19 +654,27 @@ body {
   .form__input--button {
     margin-top: 20px;
     padding: 6px;
-    font-size: 1rem;
+    font-size: var(--font-size-desktop-medium);
   }
 
   .form__errors {
-    font-size: 1rem;
+    font-size: var(--font-size-desktop-small);
   }
 
   .button--add-task {
     width: 180px;
     right: 50px;
     top: 30px;
-    font-size: 0.9rem;
+    font-size: var(--font-size-desktop-medium);
     border-radius: 20px;
+  }
+
+  .popup__message{
+    font-size: var(--font-size-desktop-medium);
+  }
+
+  .popup__button {
+    font-size: var(--font-size-desktop-medium);;
   }
 
   .dark_mode {
