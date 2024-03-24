@@ -11,6 +11,7 @@ import { useStorage } from "../hooks";
 import { initTasks, initColumns } from "../providers/initData";
 import { messages } from "../providers/popMessageData";
 import { ColumnType, TaskType, TaskIdType } from "../types/types";
+import DarkMode from "./DarkMode";
 
 function KanbanBoard() {
 	const { Provider } = TasksContext;
@@ -125,6 +126,7 @@ function KanbanBoard() {
 						{popupMessage}
 					</Popup>
 				)}
+				<DarkMode/>
 				<Button>+ Add task</Button>
 			</Provider>
 		</>
