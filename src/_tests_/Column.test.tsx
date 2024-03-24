@@ -34,9 +34,15 @@ const renderComponent = () => {
 
     return render(
         <Provider value={{
-            tasks: initTasks
+            tasks: initTasks,
+            moveTask: jest.fn(),
+            addTask: jest.fn(),
+            openDeletePopup: jest.fn(),
+            setDeleteId: jest.fn(),
+            formIsActive: false,
+            setFormIsActive: jest.fn(),
         }}>
-            <Column item={{ name: "In progress", limit: "3", id: 2 }} />
+            <Column item={{ name: "In progress", limit: 3, id: 2 }} />
         </Provider>
     )
 }
