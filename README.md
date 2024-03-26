@@ -1,6 +1,6 @@
 # Kanban Tool
 
-[Click to find out how it works!](https://sadkowa.github.io/KanbanTool/)
+[Click to find out how it works!](https://sadkowa.github.io/kanban-tool-ts)
 
 This task involved implementing a Kanban system based on the MVP (Minimum Viable Product) concept.
 
@@ -13,6 +13,7 @@ Basic elements:
     - User (person responsible)
 - Ability to move tasks between columns
 - A form (with validation) that allows adding new tasks to the board
+- Theme switcher - to switch mode - light or dark
 
 ---
 
