@@ -352,7 +352,7 @@ body {
 .dark_mode {
   position: fixed;
   left: -10px;
-  top: 10px;
+  top: 13px;
   z-index: 0;
   transform: rotate(-90deg);
 }
@@ -542,7 +542,7 @@ body {
   .dark_mode {
     transform: rotate(0deg);
     left: 30px;
-    top: -3px;
+    top: 2px;
   }
 
   .dark_mode__label {
@@ -562,7 +562,7 @@ body {
   }
 
   .dark_mode__label:active:after {
-    width: 80px;
+    width: 70px;
   }
 
   .dark_mode__label svg {
@@ -679,6 +679,6 @@ body {
 
   .dark_mode {
     left: 50px;
-    top: 7px
+    top: 13px
   }
 }
