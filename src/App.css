@@ -4,7 +4,7 @@
   --board_background: rgb(215, 246, 255);
   --header_background: rgb(255, 255, 255);
   --task_background: rgb(255, 255, 255);
-  --theme_background: rgb(156, 234, 248);
+  --theme_background: rgba(81, 195, 224, 0.245);
   --box-shadow-color: rgb(204, 204, 204);
   --font-size-mobile-small: 1rem;
   --font-size-mobile-medium: 1.2rem;
@@ -413,7 +413,7 @@ body {
 
 .dark_mode__label svg.moon {
   left: 32px;
-  fill: #0000005b;
+  fill: #00000097;
   transition: 0.5s;
 }
 
