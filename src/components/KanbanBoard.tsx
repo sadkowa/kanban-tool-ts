@@ -67,7 +67,7 @@ function KanbanBoard() {
 							return newTask;
 						} else
 							setPopupMessage(
-								`${columns[item.idColumn].name} - ${messages.limit}!`
+								`"${columns[item.idColumn].name}" - ${messages.limit}!`
 							);
 					}
 				}
